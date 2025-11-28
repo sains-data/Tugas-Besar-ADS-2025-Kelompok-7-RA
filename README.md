@@ -26,9 +26,9 @@ Pendapatan orang tua dan uang saku mahasiswa merupakan dua aspek yang berkaitan 
 
 ## Cara Menjalankan Script
 <pre>
-1. Pastikan R dan RStudio sudah terpasang di komputer.
-2. Clone repository ini atau unduh ZIP lalu buka folder project di RStudio.
-3. Pastikan file dataset berada di folder dataset/. Sesuaikan path berikut dengan file yang kalian gunakan:
+1. Pastikan R dan RStudio sudah terpasang di komputer
+2. Clone repository ini atau unduh ZIP lalu buka folder project di RStudio
+3. Pastikan file dataset berada di folder dataset/. Sesuaikan path berikut dengan file yang kalian gunakan
 4. Install paket yang dibutuhkan
 5. Buka file codeR_7_RA.Rmd
 
