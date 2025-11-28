@@ -1,0 +1,163 @@
+---
+title: "Tugas Besar ADS Kelompok 7 RA"
+author: "Kelompok7"
+date: "2025-11-28"
+output: pdf_document
+---
+
+```{r}
+# 1. Import Library
+
+library(readxl)
+library(dplyr)
+library(ggplot2)
+
+
+# 2. Baca Dataset
+
+df <- read_excel("C:/Users/USER/Downloads/tubes_ads/data/Data ADS TB Kelompok 7.xlsx")
+
+
+# Lihat struktur data
+str(df)
+
+
+# 3. Bersihkan Nama Kolom
+
+names(df) <- names(df) %>% 
+  gsub(" :", "", .) %>% 
+  gsub(" ", "_", .)
+# Ubah nama kolom agar mudah dipanggil
+names(df)[1] <- "UangSaku"
+names(df)[2] <- "Pendapatan"
+
+# 3. Tabel Kontingensi (dasar hubungan)
+
+tab_relation <- table(df$Pendapatan, df$UangSaku)
+tab_relation
+names(df)[1] <- "UangSaku"
+names(df)[2] <- "Pendapatan"
+colnames(df)
+
+# 4.1 Frekuensi Uang Saku
+freq_uangsaku <- table(df$UangSaku)
+freq_uangsaku
+
+
+
+# 4.2 Proporsi Uang Saku
+prop_uangsaku <- prop.table(freq_uangsaku)
+prop_uangsaku
+
+# 4.3 Visualisasi Uang Saku
+library(ggplot2)
+
+ggplot(df, aes(x = UangSaku)) +
+  geom_bar(fill = "black") +
+  theme_minimal() +
+  labs(
+    title = "Distribusi Uang Saku",
+    x = "Kategori Uang Saku",
+    y = "Frekuensi"
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+# Pendapatan Orang Tua
+freq_pendapatan <- table(df$Pendapatan)
+freq_pendapatan
+prop_pendapatan <- prop.table(freq_pendapatan)
+prop_pendapatan
+
+library(ggplot2)
+
+ggplot(df, aes(x = Pendapatan)) +
+  geom_bar(fill = "darkred") +
+  theme_minimal() +
+  labs(
+    title = "Distribusi Pendapatan Orang Tua",
+    x = "Kategori Pendapatan",
+    y = "Frekuensi"
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+df_pend <- as.data.frame(freq_pendapatan)
+
+
+
+# 4. Tabel Kontingensi Hubungan
+tab_relation <- table(df$Pendapatan, df$UangSaku)
+tab_relation      # melihat tabel hubungan
+
+
+# 11. FREKUENSI & PROPORSI
+
+# Frekuensi Uang Saku
+freq_us <- table(df$UangSaku)
+prop_us <- prop.table(freq_us)
+
+cat("\nFREKUENSI UANG SAKU:\n")
+print(freq_us)
+
+cat("\nPROPORSI UANG SAKU:\n")
+print(round(prop_us, 3))
+
+# Frekuensi Pendapatan Orang Tua
+freq_pd <- table(df$Pendapatan)
+prop_pd <- prop.table(freq_pd)
+
+cat("\nFREKUENSI PENDAPATAN ORANG TUA:\n")
+print(freq_pd)
+
+cat("\nPROPORSI PENDAPATAN ORANG TUA:\n")
+print(round(prop_pd, 3))
+
+
+# Ubah tabel ke data frame untuk visualisasi
+df_scatter <- as.data.frame(tab_relation)
+colnames(df_scatter) <- c("Pendapatan", "UangSaku", "Freq")
+# 5. STATISTIK DESKRIPTIF (Mean, Median, Modus)
+# Fungsi modus
+modus <- function(x){
+  tab <- table(x)
+  names(tab)[which.max(tab)]
+}
+
+# Statistik kategori Uang Saku
+freq_uangsaku <- table(df$UangSaku)
+mean_uangsaku <- mean(freq_uangsaku)
+median_uangsaku <- median(freq_uangsaku)
+
+modus_uangsaku <- modus(df$UangSaku)
+
+# Statistik kategori Pendapatan
+freq_pendapatan <- table(df$Pendapatan)
+mean_pendapatan <- mean(freq_pendapatan)
+median_pendapatan <- median(freq_pendapatan)
+modus_pendapatan <- modus(df$Pendapatan)
+
+# Cetak hasil
+cat("\nSTATISTIK UANG SAKU \n")
+cat("Mean Frekuensi   :", mean_uangsaku, "\n")
+cat("Median Frekuensi :", median_uangsaku, "\n")
+cat("Modus (Kategori) :", modus_uangsaku, "\n")
+
+cat("\n STATISTIK PENDAPATAN ORANG TUA \n")
+cat("Mean Frekuensi   :", mean_pendapatan, "\n")
+cat("Median Frekuensi :", median_pendapatan, "\n")
+cat("Modus (Kategori) :", modus_pendapatan, "\n")
+
+
+# 7. BAR CHART
+
+
+ggplot(df, aes(x = Pendapatan, fill = UangSaku)) +
+  geom_bar(position = "dodge") +
+  theme_minimal() +
+  labs(
+    title = "Bar Chart: Hubungan Pendapatan vs Uang Saku",
+    x = "Pendapatan Orang Tua",
+    y = "Jumlah Mahasiswa",
+    fill = "Uang Saku"
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
