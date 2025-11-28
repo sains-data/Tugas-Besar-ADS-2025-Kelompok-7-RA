@@ -10,6 +10,7 @@
  <summary><strong>Anggota Kelompok 7</strong></summary>
 1. Manuel Frederik – 124450039 </br>
 2. Moch. Iqbal Az-Zahir – 124450052 </br>
+3. Gustin H. Tampubolon - 124450068 </br>
 3. Felisya Nabila Putri Nugroho – 124450104 </br>
 </details>
 
