@@ -55,7 +55,8 @@ Perhatikan bahwa path pada bagian pembacaan dataset perlu disesuaikan dengan nam
 <pre>
 Tugas-Besar-ADS-2025-Kelompok-7-RA/
 - README.md
-- codeR_7_RA.Rmd
+- code/
+  - codeR_7_RA.Rmd
 - poster/
   - Poster_7_RA.pdf
 - data/
