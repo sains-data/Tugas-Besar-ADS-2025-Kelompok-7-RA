@@ -2,6 +2,8 @@
 
 ## “Analisis Hubungan antara Pendapatan Orang Tua dan Uang Saku Bulanan Mahasiswa Institut Teknologi Sumatera”
 
+![Poster Tugas Besar](poster/Poster_7_RA.png)
+
 ### Kelompok 7 – Kelas RA
 
 <details>
@@ -58,6 +60,7 @@ Tugas-Besar-ADS-2025-Kelompok-7-RA/
 - code/
   - codeR_7_RA.Rmd
 - poster/
+  - Poster_7_RA.png
   - Poster_7_RA.pdf
 - data/
   - Data ADS TB Kelompok 7.xlsx
@@ -66,3 +69,9 @@ Tugas-Besar-ADS-2025-Kelompok-7-RA/
   - grafik_pendapatan.png
   - barchart_hubungan.png
 </pre>
+
+### Output
+![Distribusi Pendapatan orang tua](output/grafik_pendapatan.png)
+![Distribusi Uang Saku](output/grafik_uangsaku.png)
+![Hubungan Pendapatan Orang Tua dan Uang Saku Mahasiswa](output/barchart_hubungan.png)
+
